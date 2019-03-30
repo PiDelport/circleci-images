@@ -29,7 +29,7 @@ RUN sudo apt-get update -qqy && sudo apt-get install -qqy \
 RUN sudo apt-get install gcc-multilib && \
     sudo easy_install -U pip && \
     sudo pip uninstall crcmod && \
-    sudo pip install -U crcmod
+    sudo pip install --no-cache -U crcmod
 
 RUN export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" && \
     echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && \
