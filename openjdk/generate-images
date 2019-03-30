@@ -60,10 +60,12 @@ RUN curl --silent --show-error --location --fail --retry 3 --output /tmp/sbt.tgz
   && /opt/sbt/bin/sbt sbtVersion
 
 # Install openjfx
-RUN apt-get install -y --no-install-recommends openjfx
+RUN apt-get install -y --no-install-recommends openjfx \
+    && rm -rf /var/lib/apt/lists/*
 
 # Add build-essential
-RUN apt-get install -y build-essential
+RUN apt-get install -y build-essential \
+    && rm -rf /var/lib/apt/lists/*
 
 EOF
 
