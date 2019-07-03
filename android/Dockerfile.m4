@@ -60,11 +60,11 @@ RUN sudo apt-get update && \
     tar -xzvf ruby-install-0.6.1.tar.gz && \
     cd ruby-install-0.6.1 && \
     sudo make install && \
-    ruby-install --cleanup ruby 2.4.3 && \
+    ruby-install --cleanup ruby 2.6.1 && \
     rm -r /tmp/ruby-install-* && \
     sudo rm -rf /var/lib/apt/lists/*
 
-ENV PATH ${HOME}/.rubies/ruby-2.4.3/bin:${PATH}
+ENV PATH ${HOME}/.rubies/ruby-2.6.1/bin:${PATH}
 RUN echo 'gem: --env-shebang --no-rdoc --no-ri' >> ~/.gemrc && gem install bundler
 
 # Download and install Android SDK
@@ -103,7 +103,8 @@ RUN sdkmanager \
   "build-tools;28.0.0" \
   "build-tools;28.0.1" \
   "build-tools;28.0.2" \
-  "build-tools;28.0.3"
+  "build-tools;28.0.3" \
+  "build-tools;29.0.0"
 
 # API_LEVEL string gets replaced by m4
 RUN sdkmanager "platforms;android-API_LEVEL"
